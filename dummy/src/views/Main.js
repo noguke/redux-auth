@@ -246,7 +246,9 @@ class Main extends React.Component {
   }
 }
 
-export default connect(({auth, demoUi}) => {
+export default connect(({state, demoUi}) => {
+  let auth = state.get('auth');
+  
   return ({
     currentUserUid: auth.getIn(["user", "attributes", "provider"]) || "none",
     currentUserProvider: auth.getIn(["user", "attributes", "uid"]) || "none",

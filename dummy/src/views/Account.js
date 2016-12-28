@@ -16,4 +16,4 @@ class Account extends React.Component {
   }
 }
 
-export default connect(({auth}) => ({auth}))(Account);
+export default connect((state) => ({ auth: state.get('auth') }))(Account);

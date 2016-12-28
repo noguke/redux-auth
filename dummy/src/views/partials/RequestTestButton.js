@@ -50,7 +50,9 @@ class RequestTestButton extends React.Component {
   }
 }
 
-export default connect(({auth, demoButtons}) => {
+export default connect(({state, demoButtons}) => {
+  let auth = state.get('auth');
+  
   return {
     signedIn: auth.getIn(["user", "isSignedIn"]),
     currentEndpointKey: auth.getIn(["configure", "currentEndpointKey"]),
